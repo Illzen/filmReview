@@ -12,11 +12,11 @@ import java.util.Arrays;
 
 
 @Log
-@WebServlet("/login")
+@WebServlet(value = "/login", loadOnStartup = 1)
 public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getParameterMap().forEach((k,v) -> System.out.println(k+": "+ Arrays.toString(v)));
+        req.getParameterMap().forEach((k, v) -> System.out.println(k + ": " + Arrays.toString(v)));
     }
 }
