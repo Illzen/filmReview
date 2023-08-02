@@ -8,26 +8,16 @@ import jakarta.servlet.annotation.*;
 import lombok.extern.java.Log;
 
 @Log
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet implements Servlet {
-    @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-
-    }
+@WebServlet(value = "/index",loadOnStartup = 1)
+public class HelloServlet extends HttpServlet {
 
     @Override
-    public ServletConfig getServletConfig() {
-        return null;
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(req.getProtocol());  //获取协议版本
+        System.out.println(req.getRemoteAddr());  //获取访问者的IP地址
+        System.out.println(req.getMethod());
     }
 
-    @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        log.info(request.getProtocol()+request.getRemoteAddr()+request.getRemoteUser()+request.getMethod());
-        System.out.println(request.getProtocol());  //获取协议版本
-        System.out.println(request.getRemoteAddr());  //获取访问者的IP地址
-        System.out.println(request.getMethod());
-    }
 //@Override
 //    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
 //        //首先将其转换为HttpServletRequest（继承自ServletRequest，一般是此接口实现）
@@ -51,13 +41,4 @@ public class HelloServlet implements Servlet {
 //        //所有内容写入完成之后，再发送给浏览器
 //}
 
-    @Override
-    public String getServletInfo() {
-        return null;
-    }
-
-    @Override
-    public void destroy() {
-
-    }
 }

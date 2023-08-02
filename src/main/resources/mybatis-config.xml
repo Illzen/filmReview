@@ -15,7 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/UserMapper.xml"/>
-        <package name="com.example.entity"/>
+        <package name="com.example.mapper"/>
     </mappers>
 </configuration>
