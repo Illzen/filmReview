@@ -11,5 +11,4 @@ public class Film {
     String name;
     Date date;
     Time time;
-
 }
