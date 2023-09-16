@@ -7,7 +7,7 @@ import java.sql.Time;
 
 @Data
 public class Film {
-    int fid;
+    int id;
     String name;
     Date date;
     Time time;
